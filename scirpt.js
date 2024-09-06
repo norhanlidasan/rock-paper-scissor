@@ -23,4 +23,9 @@ function getComputerChoice() {
 // getComputerChioice END
 
 
+function getHumanChoice() {  
+    let humanChoice = prompt("What is your Guess?", "");
+    console.log(humanChoice);
+}
 
+getHumanChoice();
