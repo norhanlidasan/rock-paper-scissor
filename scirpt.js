@@ -21,11 +21,6 @@ function getComputerChoice() {
 }
 // getComputerChioice END
 
-// color the consoe.log
-
-
-
-
 let finalScore;
 let finalHumanScore = 0;
 let finalComputerScore = 0;
@@ -40,14 +35,18 @@ for (let i = 0; i < 5; i++) {
         }
     // human guess END
 
+    // playgame Start
     let playGame = () => {
         let humanScore = 0;
         let computerScore = 0;
         
+        // playround function start
         function playRound(humanChoice, computerChoice)
         {
+            // declare humanChoice as X and computerChoice as y
             let x = humanChoice;
             let y = computerChoice;
+            // to display who win each round
             let message;
         
             if ( (x == "rock" && y == "scissor" ) || (x == "scissor" && y == "paper") || (x == "paper" && y == "rock")){
@@ -62,8 +61,10 @@ for (let i = 0; i < 5; i++) {
                 message = "Draw";
             }
         
+            // display the score each condition
             console.log("computer: " + y);
             console.log("human:" + x);
+            // display message
             console.log(message); 
         }
         
@@ -75,17 +76,22 @@ for (let i = 0; i < 5; i++) {
         console.log("computerscore: " + computerScore);
 
     }
-        playGame();
+    // Playgame End
+
+    // Call playgame function
+    playGame();
     
 }
+// looping END
+
+// message display for final score
 if (finalHumanScore > finalComputerScore) {
-    console.warn("Human is better than Computer")
-    console.log(`Final Score: Human Score ${finalHumanScore} vs Computer Score  ${finalComputerScore}`)
+    alert("Human is better than Computer")
+    alert(`Final Score: Human Score ${finalHumanScore} vs Computer Score  ${finalComputerScore}`)
 } else if (finalComputerScore > finalHumanScore){
-    console.warn("Computer is lucky for now!")
-    console.log(`Final Score: Computer Score  ${finalComputerScore} vs Human SCore ${finalHumanScore}`)
+    alert("Computer is lucky for now!")
+    alert(`Final Score: Computer Score  ${finalComputerScore} vs Human Score ${finalHumanScore}`)
 } else {
-    console.warn("Draw!")
+    alert("Draw!")
 }
 
-// loopingEND
