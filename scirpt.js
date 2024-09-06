@@ -1,4 +1,3 @@
-
 // give a random number from 1 to 3, and assigned: 1 - rock, 2 - paper and 3 - scissor
 function getComputerChoice() {
     let randNumber = Math.floor(Math.random() * 3) + 1;
@@ -22,10 +21,14 @@ function getComputerChoice() {
 }
 // getComputerChioice END
 
-
+// human guess
 function getHumanChoice() {  
     let humanChoice = prompt("What is your Guess?", "");
-    console.log(humanChoice);
+    return humanChoice;
 }
+// human guess END
 
-getHumanChoice();
+console.log(getHumanChoice());
+console.log(getComputerChoice());
+
+
