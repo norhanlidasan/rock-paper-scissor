@@ -1,3 +1,15 @@
+const buttons = document.querySelectorAll("button");
+
+buttons.forEach(button => {
+
+    button.addEventListener("click", (e) => {
+        console.log(e.target);
+        
+    })
+    
+});
+
+
 // give a random number from 1 to 3, and assigned: 1 - rock, 2 - paper and 3 - scissor
 function getComputerChoice() {
     let randNumber = Math.floor(Math.random() * 3) + 1;
@@ -18,7 +30,9 @@ function getComputerChoice() {
     }
 
     return randNumber;
+    
 }
+console.log(getComputerChoice());
 // getComputerChioice END
 
 let finalScore;
@@ -26,7 +40,7 @@ let finalHumanScore = 0;
 let finalComputerScore = 0;
 
 // looping 5 times
-for (let i = 0; i < 5; i++) {
+// for (let i = 0; i < 5; i++) {
 
     // human guess
     let humanChoices = prompt("What is your Guess?", "paper");
@@ -81,17 +95,17 @@ for (let i = 0; i < 5; i++) {
     // Call playgame function
     playGame();
     
-}
+// }
 // looping END
 
 // message display for final score
-if (finalHumanScore > finalComputerScore) {
-    alert("Human is better than Computer")
-    alert(`Final Score: Human Score ${finalHumanScore} vs Computer Score  ${finalComputerScore}`)
-} else if (finalComputerScore > finalHumanScore){
-    alert("Computer is lucky for now!")
-    alert(`Final Score: Computer Score  ${finalComputerScore} vs Human Score ${finalHumanScore}`)
-} else {
-    alert("Draw!")
-}
+// if (finalHumanScore > finalComputerScore) {
+//     alert("Human is better than Computer")
+//     alert(`Final Score: Human Score ${finalHumanScore} vs Computer Score  ${finalComputerScore}`)
+// } else if (finalComputerScore > finalHumanScore){
+//     alert("Computer is lucky for now!")
+//     alert(`Final Score: Computer Score  ${finalComputerScore} vs Human Score ${finalHumanScore}`)
+// } else {
+//     alert("Draw!")
+// }
 
