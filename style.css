@@ -1,0 +1,32 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+  #container-button {
+    display: flex;
+    justify-content: space-around;
+    height: 100px;
+    width: 500px;
+    border: 1px solid;
+    align-items: center;
+  }
+
+.result {
+    width: 500px;
+    background-color: rgb(245, 165, 231);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+}
