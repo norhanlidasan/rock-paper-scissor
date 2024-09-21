@@ -63,3 +63,8 @@ html {
     color: rgb(55, 255, 0);
     font-size: 2em;
 }
+
+.reset {
+    text-align: center;
+    margin-top: 2em;
+}

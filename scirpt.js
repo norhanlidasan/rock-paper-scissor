@@ -22,7 +22,7 @@ let message;
 // let finalComputerScore = 0;
 let humanScore = 0;
 let computerScore = 0;
-let scoreDraw = 0
+let scoreDraw = 0;
 
 let playRound = function(humanChoice, computerChoice) {
             // declare humanChoice as X and computerChoice as y
@@ -41,7 +41,6 @@ let playRound = function(humanChoice, computerChoice) {
                 ++scoreDraw;
                 message = "Draw";
             }
-
             console.log("human:" + x);
             console.log("computer: " + y);
             console.log(message); 
@@ -109,22 +108,17 @@ buttons.forEach(button => {
         divDrawSc0re.textContent = scoreDraw;
         drawSCore.appendChild(divDrawSc0re);
 
-        //  Call getHumanChoice() function
         getHumanChoice();
-
-  
 
         getFirstFive();
 
-            })
-        
+        })       
 });
 
 let getFirstFive = function() {
         if (humanScore == 5 || scoreDraw == 5  || computerScore == 5) { 
             disabledButton();
-        }
-    
+        }   
 }
 
 let disabledButton = function() {
@@ -149,6 +143,4 @@ let buttonReset = document.querySelector(".reset");
     for (const but of buttons) {   
         but.disabled = false;
     }
-    
-
   })
