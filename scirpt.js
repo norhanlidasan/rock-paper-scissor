@@ -1,145 +1,154 @@
-// select each button (rock, paper, scissor)
-const buttons = document.querySelectorAll("button");
+// getComputerChioice Start, give a random number from 1 to 3, and assigned: 1 - rock, 2 - paper and 3 - scissor
+let getComputerChoice = function() {
+    let randNumber = Math.floor(Math.random() * 3) + 1;
+    switch (randNumber) {
+        case 1:
+        randNumber = "rock";
+        break;      
+        case 2:
+        randNumber = "paper";
+        break;
+        case 3:
+        randNumber = "scissor";
+        break;
+    }
+    return randNumber;               
+}
+// getComputerChioice END
 
-buttons.forEach(button => {
+// to display who win each round
+let message;
+// let finalHumanScore = 0;
+// let finalComputerScore = 0;
+let humanScore = 0;
+let computerScore = 0;
+let scoreDraw = 0
 
-    button.addEventListener("click", (e) => {
-        
-            // getComputerChioice Start, give a random number from 1 to 3, and assigned: 1 - rock, 2 - paper and 3 - scissor
-            function getComputerChoice() {
-                let randNumber = Math.floor(Math.random() * 3) + 1;
-
-                switch (randNumber) {
-                    case 1:
-                    randNumber = "rock";
-                    break;
-                        
-                    case 2:
-                    randNumber = "paper";
-                    break;
-
-                    case 3:
-                    randNumber = "scissor";
-                    break;
-                }
-                return randNumber;               
+let playRound = function(humanChoice, computerChoice) {
+            // declare humanChoice as X and computerChoice as y
+            x = humanChoice;
+            y = computerChoice;
+              
+            if ( (x == "rock" && y == "scissor" ) || (x == "scissor" && y == "paper") || (x == "paper" && y == "rock")){
+                ++humanScore;
+                // ++finalHumanScore;
+                message = `human won! because ${x} is better than ${y}`;
+            } else if ( (x == "rock" && y == "paper" ) || (x == "scissor" && y == "rock") || (x == "paper" && y == "scissor") ){
+                ++computerScore;
+                // ++finalComputerScore;
+                message =  `computer won! because ${y} is better than ${x}`;
+            } else {
+                ++scoreDraw;
+                message = "Draw";
             }
-            console.log(getComputerChoice());
-            // getComputerChioice END
 
-            let finalScore;
-            let finalHumanScore = 0;
-            let finalComputerScore = 0;
-
-        // looping 5 times
-        // for (let i = 0; i < 5; i++) {
-
-        // Global Declration
-        // to display who win each round
-        let message;
-        
-        // declaring of the x as humanChoice and y as computerChoice
-        let x;
-        let y;
-        
-        // declaring humanChoices
-        let humanChoices;
-        function getHumanChoice() {     
-            // human guess (e.target.textContent is the value of the button you pressed)
-            humanChoices = e.target.textContent;
-            return humanChoices;
+            console.log("human:" + x);
+            console.log("computer: " + y);
+            console.log(message); 
         }
 
         // playgame Start
         let playGame = () => {
-            let humanScore = 0;
-            let computerScore = 0;
-            
-            // playround function start
-            function playRound(humanChoice, computerChoice)
-            {
-                // declare humanChoice as X and computerChoice as y
-                x = humanChoice;
-                y = computerChoice;
-                  
-                if ( (x == "rock" && y == "scissor" ) || (x == "scissor" && y == "paper") || (x == "paper" && y == "rock")){
-                    humanScore += 1;
-                    ++finalHumanScore;
-                    message = `human won! because ${x} is better than ${y}`;
-                } else if ( (x == "rock" && y == "paper" ) || (x == "scissor" && y == "rock") || (x == "paper" && y == "scissor") ){
-                    computerScore += 1;
-                    ++finalComputerScore;
-                    message =  `computer won! because ${y} is better than ${x}`;
-                } else {
-                    message = "Draw";
-                }
-                // display the score each condition
-                console.log("human:" + x);
-                console.log("computer: " + y);
-                
-                // display message
-                console.log(message); 
-            }
-            
-            const humanSelection = getHumanChoice();
-            const computerSelection = getComputerChoice();
-            
-            playRound(humanSelection, computerSelection);
+            playRound(getHumanChoice(), getComputerChoice());
             console.log("humanscore: " + humanScore);
             console.log("computerscore: " + computerScore);
-
-            // select class result
-            const result = document.querySelector(".result");
-
-                        // create div1 for humanChoice
-                        let div1 = document.createElement("div");
-                        div1.textContent = x;
-                        result.appendChild(div1);
-            
-                        // create div1 for computerChoice
-                        let div2 = document.createElement("div");
-                        div2.textContent = y;
-                        result.appendChild(div2);
-            
-                        // create div for display the message
-                        let div = document.createElement("div");
-                        div.textContent = message;
-                        result.appendChild(div);
-
-                        // create div for humanScore
-                        let divHumanScore = document.createElement("div");
-                        divHumanScore.textContent = humanScore;
-                        result.appendChild(divHumanScore);
-
-                        // create div for computerScore
-                        let divComScore = document.createElement("div");
-                        divComScore.textContent = computerScore;
-                        result.appendChild(divComScore);
         }
         // Playgame End
-        
-        if(finalHumanScore == 5){
-            alert("5 points")
-        }
 
-        // Call playgame function
-        playGame();
-            
-        console.log(finalHumanScore)
-        })
-    
+// declaring humanChoices
+let humanChoices;
+let getHumanChoice = function() {     
+    return humanChoices;
+}
+
+// select each button (rock, paper, scissor)
+const buttons = document.querySelectorAll("button");
+
+const result = document.querySelector(".result");
+const div1 = document.createElement("div");
+const div2 = document.createElement("div");
+const div = document.createElement("div");
+const divHumanScore = document.createElement("div");
+const divComScore = document.createElement("div");
+const divDrawSc0re = document.createElement("div");
+
+const showHumanScore = document.querySelector(".human > p:last-child");
+const showCompScore = document.querySelector(".computer > p:last-child");
+const drawSCore = document.querySelector(".draw > p:last-child")
+
+
+// every click the 3 button, it will run this code
+buttons.forEach(button => {
+    button.addEventListener("click", (e) => { 
+        // human guess (e.target.textContent is the value of the button you pressed)
+        humanChoices = e.target.textContent;
+        
+        // Call playgame() function
+        playGame();  
+
+        // create div1 for humanChoice
+        div1.textContent = x;
+        result.appendChild(div1);
+
+        // create div for display the message
+        div.textContent = message;
+        result.appendChild(div)  
+                    
+        // create div1 for computerChoice
+        div2.textContent = y;
+        result.appendChild(div2);
+ 
+        // create div for humanScore
+        divHumanScore.textContent = humanScore;
+        showHumanScore.appendChild(divHumanScore);
+        
+        // create div for computerScore
+        divComScore.textContent = computerScore;
+        showCompScore.appendChild(divComScore);
+
+        divDrawSc0re.textContent = scoreDraw;
+        drawSCore.appendChild(divDrawSc0re);
+
+        //  Call getHumanChoice() function
+        getHumanChoice();
+
+  
+
+        getFirstFive();
+
+            })
+        
 });
 
-
+let getFirstFive = function() {
+        if (humanScore == 5 || scoreDraw == 5  || computerScore == 5) { 
+            disabledButton();
+        }
     
-// }
-// looping END
+}
 
-// message display for final score
-// if (finalHumanScore > finalComputerScore) {
-//     alert("Human is better than Computer")
-//     alert(`Final Score: Human Score ${finalHumanScore} vs Computer Score  ${finalComputerScore}`)
-// } else if (finalComputerScore > finalHumanScore){
-//     alert("Computer is lucky for now!")
-//     alert(`Final Score: Comessage`)
-// }
+let disabledButton = function() {
+    for (const but of buttons) {   
+        but.disabled = true;
+    }
+}
+
+let buttonReset = document.querySelector(".reset");
+ 
+  buttonReset.addEventListener("click", ()=> {
+    humanScore = 0;
+    computerScore = 0;
+    scoreDraw = 0;
+    divHumanScore.textContent = 0;
+    divDrawSc0re.textContent = 0;
+    divComScore.textContent = 0;
+    div1.textContent = "";
+    div.textContent = "";
+    div2.textContent = "";
+    
+    for (const but of buttons) {   
+        but.disabled = false;
+    }
+    
+
+  })
