@@ -91,12 +91,12 @@ buttons.forEach(button => {
 
         // create div for display the message
         div.textContent = message;
-        result.appendChild(div)  
-                    
+        result.appendChild(div); 
+
         // create div1 for computerChoice
         div2.textContent = y;
         result.appendChild(div2);
- 
+                    
         // create div for humanScore
         divHumanScore.textContent = humanScore;
         showHumanScore.appendChild(divHumanScore);
@@ -109,38 +109,74 @@ buttons.forEach(button => {
         drawSCore.appendChild(divDrawSc0re);
 
         getHumanChoice();
-
+        finalMessage();
         getFirstFive();
-
+        
         })       
 });
 
+// after reaching 5 points, button will be diable
 let getFirstFive = function() {
         if (humanScore == 5 || scoreDraw == 5  || computerScore == 5) { 
             disabledButton();
         }   
 }
 
+// disable the buttons
 let disabledButton = function() {
     for (const but of buttons) {   
         but.disabled = true;
     }
 }
 
+// show the final message after reach the 5 points
+let arrMessage = ["Human Win!", "Computer Win!", "Draw!"];
+let paraMessage = document.createElement("p");
+
+  let finalMessage = () => {
+    if (humanScore == 5) {
+        result.removeChild(div);
+        result.removeChild(div2);
+        result.removeChild(div1);
+        result.classList.add("finalMessage");
+        paraMessage.textContent = arrMessage[0];
+        paraMessage.setAttribute('style', 'font-size: 2em');
+        result.appendChild(paraMessage);
+    } else if ( scoreDraw == 5) {
+        result.removeChild(div);
+        result.removeChild(div2);
+        result.removeChild(div1);
+        result.classList.add("finalMessage");
+        paraMessage.textContent = arrMessage[2];
+        paraMessage.setAttribute('style', 'font-size: 2em');
+        result.appendChild(paraMessage);
+    } else if (computerScore == 5) {
+        result.removeChild(div);
+        result.removeChild(div2);
+        result.removeChild(div1);
+        result.classList.add("finalMessage");
+        paraMessage.textContent = arrMessage[1];
+        paraMessage.setAttribute('style', 'font-size: 2em');
+        result.appendChild(paraMessage);
+    }
+  }
+
+// reset button function
 let buttonReset = document.querySelector(".reset");
  
-  buttonReset.addEventListener("click", ()=> {
-    humanScore = 0;
-    computerScore = 0;
-    scoreDraw = 0;
-    divHumanScore.textContent = 0;
-    divDrawSc0re.textContent = 0;
-    divComScore.textContent = 0;
-    div1.textContent = "";
-    div.textContent = "";
-    div2.textContent = "";
-    
-    for (const but of buttons) {   
-        but.disabled = false;
-    }
-  })
+buttonReset.addEventListener("click", ()=> {
+  humanScore = 0;
+  computerScore = 0;
+  scoreDraw = 0;
+  divHumanScore.textContent = 0;
+  divDrawSc0re.textContent = 0;
+  divComScore.textContent = 0;
+  div1.textContent = "";
+  div.textContent = "";
+  div2.textContent = "";
+  result.textContent = "";
+  result.classList.remove("finalMessage");
+  for (const but of buttons) {   
+      but.disabled = false;
+  }
+});

@@ -1,70 +1,73 @@
 html {
-    box-sizing: border-box;
-  }
-  *, *:before, *:after {
-    box-sizing: inherit;
-  }
-
-  body {
-    display: flex;
-    flex-direction: column;
-    align-content: space-around;
-    justify-content: flex-end;
-    flex-wrap: wrap;
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
-  #container-button {
-    display: flex;
-    justify-content: space-around;
-    height: 100px;
-    width: 500px;
-    border: 1px solid;
-    align-items: center;
-  }
+body {
+  display: flex;
+  flex-direction: column;
+  align-content: space-around;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+#container-button {
+  display: flex;
+  justify-content: space-around;
+  height: 100px;
+  width: 500px;
+  border: 1px solid;
+  align-items: center;
+}
 
 .result {
-    height: 10em;
-    width: 500px;
-    background-color: rgb(245, 165, 231);
-    text-align: center;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    row-gap: 1em;
+  height: 10em;
+  width: 500px;
+
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  row-gap: 1em;
+  color: white;
+  background-color: black;
 }
 
+
 .result > div {
-    width: 100px;
+  width: 100px;
 }
 
 .section {
-    display: flex;
-    width: 500px;
-    background-color: blueviolet;
-    justify-content: space-around;
-    align-items: baseline;
-    text-align: center;
-    color: white;
+  display: flex;
+  width: 500px;
+  background-color: blueviolet;
+  justify-content: space-around;
+  align-items: baseline;
+  text-align: center;
+  color: white;
 }
 
 .section > div {
-    width: 100px;
-    height: 10em;
-    margin-top: 0;
-    background-color: blueviolet;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: center;
+  width: 100px;
+  height: 10em;
+  margin-top: 0;
+  background-color: blueviolet;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .section > div > p:last-child {
-    color: rgb(55, 255, 0);
-    font-size: 2em;
+  color: rgb(55, 255, 0);
+  font-size: 2em;
 }
 
 .reset {
-    text-align: center;
-    margin-top: 2em;
+  text-align: center;
+  margin-top: 2em;
 }
